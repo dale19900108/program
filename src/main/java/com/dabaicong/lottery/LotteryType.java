@@ -1,4 +1,4 @@
-package com.dabaicong.jpa.util;
+package com.dabaicong.lottery;
 
 import java.util.ArrayList;
 import java.util.Arrays;

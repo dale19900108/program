@@ -2,6 +2,7 @@ package com.dabaicong.jpa.util;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 
 public class StringUtil {
@@ -16,6 +17,15 @@ public class StringUtil {
 			return true;
 		}
 		return false;
+	}
+	
+	/**
+	 * 去掉开始的0
+	 * @param multiple
+	 * @return
+	 */
+	public static String removeStartZero(String string) {
+		return StringUtils.removeStart(string, "0");
 	}
 
 	public static boolean isNotEmpt(String str) {

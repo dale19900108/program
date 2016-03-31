@@ -35,6 +35,15 @@ public class XmlParse {
 	public XmlParse(){
 		
 	}
+	
+	public static XmlParse  addGuoXinCaiHead(String agentNo,String code){
+		XmlParse xmlParse=null;
+		xmlParse = new XmlParse("message", "header", "body");
+		xmlParse.addHeaderElement("sid", agentNo);
+		xmlParse.addHeaderElement("cmd", code);
+		xmlParse.addHeaderElement("digestType","md5");
+		return xmlParse;
+	}
 	/**
 	 * 拼串
 	 * 

@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-
 import com.dabaicong.jpa.entry.Employee;
 
 public class EmployeeService {

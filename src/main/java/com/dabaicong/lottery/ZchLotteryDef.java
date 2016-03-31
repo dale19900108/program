@@ -3,8 +3,6 @@ package com.dabaicong.lottery;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.dabaicong.jpa.util.LotteryType;
-
 public class ZchLotteryDef {
 
 //	/** 彩种转换      自己规定的彩种编码    --->  出票商规定的编码 */
