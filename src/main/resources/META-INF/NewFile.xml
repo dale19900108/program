@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msg v="1.0" id="5b9e227abf424dd19f59aa9fe7126348">
+	<ctrl>
+		<agentID>800154</agentID>
+		<cmd>2000</cmd>
+		<timestamp>1428573810326</timestamp>
+		<md>415e1fff5b664e3937566aec868d33d1</md>
+	</ctrl>
+	<body>
+		<response errorcode="0">
+			<issuequery>
+				<issue lotoid="117" issue="15053" starttime="20150408210000"
+					endtime="20150410230000" status="1" />
+				<issue lotoid="117" issue="15054" starttime="20150408210000"
+					endtime="20150411210000" status="1" />
+				<issue lotoid="117" issue="15055" starttime="20150408210000"
+					endtime="20150412203000" status="1" />
+			</issuequery>
+		</response>
+	</body>
+</msg>
