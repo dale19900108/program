@@ -21,14 +21,15 @@ public class callBackMain {
 			
 		testCallback  callback = new testCallback() ; 
 		callback.setGuess("test");
-		System.out.println("before call");
+		//System.out.println("before call");
+		System.out.println(Thread.currentThread().getContextClassLoader().getResource(""));
 		ApiRetryTaskExecutor exe = new ApiRetryTaskExecutor();
 		exe.invokeAsync(callback);
 		
-		System.out.println(" ready to sleep");
+		//System.out.println(" ready to sleep");
 		Thread.sleep(3000);
 		exe.destroy();
-		System.out.println(" sleep end");
+		//System.out.println(" sleep end");
 			
 	}
 }

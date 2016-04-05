@@ -6,7 +6,6 @@
 
 package com.dabaicong.callback;
 
-import java.util.concurrent.Callable;
 
 /**
  * <b>创建日期</b>: 2015年4月13日<br/>
@@ -17,7 +16,7 @@ import java.util.concurrent.Callable;
  * Remark: 认为有必要的其他信息
  */
 
-public class testCallback  implements Callable<Object>{
+public class testCallback  extends AbstractCallableTask<Object>{
 	
 	private String guess  ;
 
@@ -32,23 +31,21 @@ public class testCallback  implements Callable<Object>{
 
 
 
-	/**
-	 * 功       能: <br/>
-	 * 作       者: 刘冲<br/>
-	 * 创建日期: 2015年4月13日<br/>
-	 * 修  改  者: mender<br/>
-	 * 修改日期: modifydate<br/>
-	 * @return
-	 * @throws Exception
-	 * @see java.util.concurrent.Callable#call()
-	 * 
-	 */
+	/*
 	public Object call() throws Exception {
 		System.out.println(guess+this.getClass().toString()+" ready to sleep");
 		Thread.sleep(1000);
 		System.out.println(guess+this.getClass().toString()+" sleep end");
 		return null ;
-	}
+	}*/
 
+	
+	@Override
+	protected Object execute() throws Exception {
+		System.out.println(guess+this.getClass().toString()+" ready to sleep");
+		Thread.sleep(1000);
+		System.out.println(guess+this.getClass().toString()+" sleep end");
+		return null ;
+	}
 	
 }
