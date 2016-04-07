@@ -12,8 +12,9 @@
 		<aspectj.version>1.8.0</aspectj.version>
 		<maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 		<nexus.url>172.16.20.239:8081</nexus.url>
+		<redis.url></redis.url>
 	</properties>
-		<repositories>
+	<repositories>
 		<repository>
 			<id>public</id>
 			<name>all public jar</name>
@@ -50,6 +51,11 @@
 			<version>1.6.3</version>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-spring</artifactId>
+			<version>5.9.1</version>
+		</dependency>
+		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
 			<version>2.4</version>
@@ -65,11 +71,7 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>4.1.0.Final</version>
 		</dependency>
-		<!-- <dependency>
-	<groupId>jaxen</groupId>
-	<artifactId>jaxen</artifactId>
-	<version>1.1.1</version>
-</dependency> -->
+		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -85,21 +87,7 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-			<version>${logback.version}</version>
-		</dependency> -->
-		<!-- <dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-access</artifactId>
-			<version>${logback.version}</version>
-		</dependency> -->
+
 		<dependency>
 			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
@@ -124,6 +112,11 @@
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
 			<version>1.0.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>com.caucho</groupId>
+			<artifactId>hessian</artifactId>
+			<version>4.0.38</version>
 		</dependency>
 	</dependencies>
 
