@@ -6,7 +6,6 @@ import com.dangdang.ddframe.rdb.sharding.api.rule.DataSourceRule;
 import com.dangdang.ddframe.rdb.sharding.api.rule.ShardingRule;
 import com.dangdang.ddframe.rdb.sharding.api.rule.TableRule;
 import com.dangdang.ddframe.rdb.sharding.api.strategy.table.SingleKeyTableShardingAlgorithm;
-import com.dangdang.ddframe.rdb.sharding.api.strategy.table.TableShardingStrategy;
 import com.dangdang.ddframe.rdb.sharding.id.generator.self.CommonSelfIdGenerator;
 import com.dangdang.ddframe.rdb.sharding.id.generator.self.HostNameIdGenerator;
 import com.dangdang.ddframe.rdb.sharding.id.generator.self.IPIdGenerator;
@@ -31,21 +30,21 @@ public class SimpleTest {
 
     private static String databaseName1 = "dbtest0";
     private static String databaseName2 = "dbtest1";
-    private static String sql = "SELECT * FROM t_order_0 where user_id ='10';";
+    private static String sql = "SELECT * FROM t_order where user_id ='10';";
 
 
     private static Map<String, DataSource> sourceMap = new HashMap<String, DataSource>();
 
 
     public static void main(String[] args) throws SQLException {
-        // testSelect();
+        testSelect();
         // testDelete();
         // testIPIdGenerator(20);
         // System.out.println("===========================");
         // testHostNameIDGerenator(20);
         // System.out.println("===========================");
         // testCommonIdGenerator(10);
-        testSelectByShardingDatabase();
+        // testSelectByShardingDatabase();
     }
 
     public static void testIPIdGenerator(int seq) {
@@ -121,7 +120,7 @@ public class SimpleTest {
 
     public static ShardingRule getShardingRule() {
 
-        TableRule orderTableRule = TableRule.builder("t_order_0").dataSourceRule(getDataSourceRule()).build();
+        TableRule orderTableRule = TableRule.builder("t_order").actualTables(Arrays.asList("t_order_1")).dataSourceRule(getDataSourceRule()).build();
         TableRule ticketTableRule = TableRule.builder("ticket").dataSourceRule(getDataSourceRule()).build();
         ShardingRule shardingRule = ShardingRule.builder()
                 .dataSourceRule(getDataSourceRule())
@@ -140,7 +139,7 @@ public class SimpleTest {
                 .dataSourceRule(getDataSourceRule())
                 .tableRules(Arrays.asList(orderTableRule))
                 // .databaseShardingStrategy(new DatabaseShardingStrategy("user_id", new ModuloDatabaseShardingAlgorithm()))
-                .tableShardingStrategy(new TableShardingStrategy("user_id", new simpleDatabaseShardingStrategy()))
+                // .tableShardingStrategy(new TableShardingStrategy("user_id", new simpleDatabaseShardingStrategy()))
                 .build();
         return shardingRule;
     }
