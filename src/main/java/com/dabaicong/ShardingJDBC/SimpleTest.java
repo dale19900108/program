@@ -120,7 +120,7 @@ public class SimpleTest {
 
     public static ShardingRule getShardingRule() {
 
-        TableRule orderTableRule = TableRule.builder("t_order").actualTables(Arrays.asList("t_order_1")).dataSourceRule(getDataSourceRule()).build();
+        TableRule orderTableRule = TableRule.builder("t_order").actualTables(Arrays.asList("db1.t_order_1")).dataSourceRule(getDataSourceRule()).build();
         TableRule ticketTableRule = TableRule.builder("ticket").dataSourceRule(getDataSourceRule()).build();
         ShardingRule shardingRule = ShardingRule.builder()
                 .dataSourceRule(getDataSourceRule())
