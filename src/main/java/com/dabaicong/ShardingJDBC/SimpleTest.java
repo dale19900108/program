@@ -37,7 +37,7 @@ public class SimpleTest {
 
 
     public static void main(String[] args) throws SQLException {
-        testSelect();
+        // testSelect();
         // testDelete();
         // testIPIdGenerator(20);
         // System.out.println("===========================");
@@ -45,6 +45,14 @@ public class SimpleTest {
         // System.out.println("===========================");
         // testCommonIdGenerator(10);
         // testSelectByShardingDatabase();
+        StringBuilder hotIds = new StringBuilder();
+        hotIds.append("test1").append(",");
+        hotIds.append("test2").append(",");
+        hotIds.append("test3").append(",");
+        hotIds.append("test4").append(",");
+        hotIds.append("test5").append(",");
+        hotIds.delete(hotIds.length() - 1, hotIds.length());
+        System.out.println(hotIds.toString());
     }
 
     public static void testIPIdGenerator(int seq) {
