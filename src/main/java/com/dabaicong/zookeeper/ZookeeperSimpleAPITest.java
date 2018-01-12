@@ -13,7 +13,8 @@ public class ZookeeperSimpleAPITest {
 
     private static final String zookeeperAddress = "127.0.0.1:2181";
 
-    private static final String zookeeperPath = "/lockTest";
+    //private static final String zookeeperPath = "/lockTest";
+    private static final String zookeeperPath = "/zkWatchTest";
 
     public static void main(String[] args) throws Exception {
         CuratorFramework client = CuratorFrameworkFactory.newClient(zookeeperAddress, new RetryNTimes(5, 5000));
@@ -21,7 +22,7 @@ public class ZookeeperSimpleAPITest {
         client.start();
         System.out.println("client start ! now status is :" + client.getState().name());
 
-        getNode(client);
+        // getNode(client);
 
         // createNode
         createNode(client);
@@ -72,7 +73,7 @@ public class ZookeeperSimpleAPITest {
         System.out.println(" ls  /lockTest :");
         System.out.println(client.getChildren().forPath(zookeeperPath));
         System.out.println(" ls  /lockTest/parent :");
-        System.out.println(client.getChildren().forPath("/lockTest/parent"));
+        System.out.println(client.getChildren().forPath(zookeeperPath + "/parent"));
         System.out.println("--------------------getNode------------------------");
         System.out.println();
         System.out.println();
@@ -82,7 +83,7 @@ public class ZookeeperSimpleAPITest {
     private static void getNodeDate(CuratorFramework client) throws Exception {
         System.out.println("------------------getNodeDate--------------------------");
         System.out.println(" ls  /lockTest :");
-        System.out.println(client.getChildren().forPath("/lockTest"));
+        System.out.println(client.getChildren().forPath(zookeeperPath));
         System.out.println(" get " + zookeeperPath + "/test1");
         byte[] data = client.getData().forPath(zookeeperPath + "/test1");
         System.out.println(new String(data));
