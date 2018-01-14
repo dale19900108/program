@@ -19,6 +19,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p>
  * <p>
  * 运行时，先开这个，然后再执行之前的simpleApi去操作节点。
+ *
+ *  * 但是，无法保证每次都能接收到节点变化的。但是在大量更改的时候，会可能丢掉部分监听
+ * 不过，官方文档上说的是，能保证最后一次成功。中间过程可能会忽略。
  */
 public class ZookeeperTreeWatcherTest {
 

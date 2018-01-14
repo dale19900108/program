@@ -25,22 +25,24 @@ public class ZookeeperSimpleAPITest {
         // getNode(client);
 
         // createNode
-        createNode(client);
+        // createNode(client);
+        //
+        // // get node data
+        // getNodeDate(client);
+        //
+        // // modify data
+        // modifyNodeDate(client);
+        //
+        // // get node data
+        // getNodeDate(client);
+        //
+        // // delete node data
+        // deleteNode(client);
+        //
+        // // get node
+        // getNode(client);
 
-        // get node data
-        getNodeDate(client);
-
-        // modify data
-        modifyNodeDate(client);
-
-        // get node data
-        getNodeDate(client);
-
-        // delete node data
-        deleteNode(client);
-
-        // get node
-        getNode(client);
+        aLotodifyNodeDate(client);
 
     }
 
@@ -122,6 +124,19 @@ public class ZookeeperSimpleAPITest {
         System.out.println(" delete  " + zookeeperPath + "/parent/test1");
         client.delete().forPath(zookeeperPath + "/parent/test1");
         System.out.println("--------------------deleteNode------------------------");
+        System.out.println();
+        System.out.println();
+    }
+
+    // modify node date
+    private static void aLotodifyNodeDate(CuratorFramework client) throws Exception {
+        System.out.println("--------------------modifyNodeDate------------------------");
+        String dataNew = "hello word";
+        for (int i = 0; i < 3000; i++) {
+            System.out.println(" modify  /zkWatchTest/test1" + "    " + dataNew + i);
+            System.out.println(client.setData().forPath("/zkWatchTest/test1", (i + dataNew).getBytes()));
+        }
+        System.out.println("--------------------modifyNodeDate------------------------");
         System.out.println();
         System.out.println();
     }
