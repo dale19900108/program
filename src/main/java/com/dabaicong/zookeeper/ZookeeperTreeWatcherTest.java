@@ -41,12 +41,16 @@ public class ZookeeperTreeWatcherTest {
         TreeCache watcher = new TreeCache(client1, ZK_PATH);
         watcher.getListenable().addListener(new TreeCacheListener() {
             public void childEvent(CuratorFramework client, TreeCacheEvent event) {
-                System.out.println("事件类型：" + event.getType() +
-                        " | 路径：" + (null != event.getData() ? event.getData().getPath() : null));
+                System.out.println("事件类型：" + event.getType() + " | 路径：" + (null != event.getData() ? event.getData().getPath() : null));
                 count.addAndGet(1);
                 System.out.println(count.get());
             }
         });
+
+        // TreeCache在初始化(调用start()方法)的时候会回调TreeCacheListener实例一个事TreeCacheEvent，
+        // 而回调的TreeCacheEvent对象的Type为INITIALIZED，ChildData为null，
+        // 此时event.getData().getPath()很有可能导致空指针异常，这里应该主动处理并避免这种情况。
+
 
         watcher.start();
         System.out.println("register watcher success");
