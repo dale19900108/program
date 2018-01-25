@@ -4,8 +4,20 @@
 	<groupId>program-gitHub</groupId>
 	<artifactId>program-gitHub</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-	<properties>
+    <properties>
 		<spring.version>3.2.4.RELEASE</spring.version>
 		<slf4j.version>1.7.7</slf4j.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
