@@ -42,6 +42,12 @@ public class AsyncClientPipelined {
             List<HttpResponse> responses = future.get();
             for (HttpResponse response : responses) {
                 System.out.println(response.getStatusLine());
+                byte[] buff = new byte[1024];
+                StringBuffer result = new StringBuffer();
+                while (response.getEntity().getContent().read(buff) != 0) {
+                    result.append(buff);
+                }
+                System.out.println(result);
             }
             System.out.println("Shutting down");
         } finally {
