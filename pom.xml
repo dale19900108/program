@@ -23,8 +23,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<aspectj.version>1.8.0</aspectj.version>
 		<maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
-		<nexus.url>172.16.20.239:8081</nexus.url>
-		<redis.url></redis.url>
+		<nexus.url>tss.yingkelecai.com</nexus.url>
 	</properties>
 	<repositories>
 		<repository>
@@ -36,11 +35,6 @@
 			<id>public1</id>
 			<name>all  jar</name>
 			<url>http://${nexus.url}/nexus/content/repositories/thirdparty/</url>
-		</repository>
-		<repository>
-			<id>momoplan-maven-release</id>
-			<name>momoplan maven release</name>
-			<url>http://repo1.maven.org/maven2</url>
 		</repository>
 	</repositories>
 	<dependencies>
